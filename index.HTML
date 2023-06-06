@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <img src="external-preview.redd.it/oF6xvAcvr2FPFpoyyGtPb3fhVHyZPbT2CZNCYbhSZ9Q.jpg" alt="" srcset="">
-    <img width="300px" src="https://blog-eeuu.com/wp-content/uploads/2018/08/breaking-bad-logo.jpeg" alt="" srcset="">
+    <img id="img-titulo" src="https://img.itch.zone/aW1nLzEwODIwNDM0LmpwZw==/original/59nbK3.jpg" alt="" srcset="">
+    <img id="img-portada" src="https://blog-eeuu.com/wp-content/uploads/2018/08/breaking-bad-logo.jpeg" alt="" srcset="">
     <div>
         <legend>Seleccione la cantidad de productos: </legend>
         <select name="cant-mostrar-productos" id="cant-mostrar-productos">
@@ -41,7 +41,7 @@
             <option value="gris-verde">Gris y Verde</option>
         </select>
         <br>
-        <button onclick="mostrarProductos()">Mostrar</button>
+        <button onclick="generarProductos()">Mostrar</button>
     </div>
 
     <div id="mostrar-info-seleccion">
