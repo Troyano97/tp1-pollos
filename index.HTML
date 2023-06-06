@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="external-preview.redd.it/oF6xvAcvr2FPFpoyyGtPb3fhVHyZPbT2CZNCYbhSZ9Q.jpg" alt="" srcset="">
+    <img width="300px" src="https://blog-eeuu.com/wp-content/uploads/2018/08/breaking-bad-logo.jpeg" alt="" srcset="">
+    <div>
+        <legend>Seleccione la cantidad de productos: </legend>
+        <select name="cant-mostrar-productos" id="cant-mostrar-productos">
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+    <br>
+    <div >
+        <legend>Permitido por cada producto: </legend>
+        <select name="cantidad-por-productos" id="cantidad-por-producto">
+            <option value="1">1</option>
+            <option value="15">15</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <legend>Colores Disponibles: </legend>
+        <select name="select-colores" id="select-colores">
+            <option value="rojo-azul">Rojo y Azul</option>
+            <option value="amarillo-celeste">Amarillo y Celeste</option>
+            <option value="blanco-violeta">Blanco y Violeta</option>
+            <option value="gris-verde">Gris y Verde</option>
+        </select>
+        <br>
+        <button onclick="mostrarProductos()">Mostrar</button>
+    </div>
+
+    <div id="mostrar-info-seleccion">
+    </div>
+
+    <div id="mostrar-productos-selec">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
