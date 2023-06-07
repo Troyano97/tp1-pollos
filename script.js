@@ -5,13 +5,15 @@ const selectColores = document.querySelector("#select-colores");
 const divMostrarInfo = document.querySelector("#mostrar-info-seleccion");
 const divMostrarProductos = document.querySelector("#mostrar-productos-selec");
 
+/* Productos a la venta y su foto */
+
 const PRODUCTOS = [
     {
-        nombre: 'Pollo con salsa agridulce',
-        imagen: 'https://www.divinacocina.es/wp-content/uploads/pollo-agridulce-salsa.jpg'
-    }, {
         nombre: 'Pollo frito',
         imagen: 'https://cdn2.cocinadelirante.com/sites/default/files/images/2019/11/pollo-frito.jpg'
+    }, {
+        nombre: 'Pollo con salsa agridulce',
+        imagen: 'https://www.divinacocina.es/wp-content/uploads/pollo-agridulce-salsa.jpg'
     }, {
         nombre: 'Hamburgesa de pollo',
         imagen: 'https://cdn.cookmonkeys.es/recetas/medium/hamburguesa-de-pollo-1-13554.jpg'
@@ -31,7 +33,7 @@ const PRODUCTOS = [
         nombre: 'Alitas de pollo picante',
         imagen: 'https://static.onecms.io/wp-content/uploads/sites/21/2014/09/04/b8b86683-aa45-4419-9e1f-c785e7bdc35d.jpg'
     }, {
-        nombre: 'Pollo con papas fritas y ketchup',
+        nombre: 'Patas de pollo',
         imagen: 'https://thumbs.dreamstime.com/b/patas-de-pollo-crujientes-con-patatas-fritas-y-ketchup-aisladas-en-fondo-blanco-185063274.jpg'
     }, {
         nombre: 'Salteado de pollo',
@@ -40,6 +42,7 @@ const PRODUCTOS = [
 
 ]
 
+/* Toma los valores recibidos y los muestra al usuario */
 
 function mostrarSeleccion() {
     cantProductSelec = (selectCantMostrarProduc.value);
@@ -53,6 +56,8 @@ function mostrarSeleccion() {
     `;
 }
 
+/* Muestra los productos junto a las opciones de pago y la cantidad */
+
 function mostrarProductos() {
 
     divMostrarProductos.innerHTML = "";
@@ -60,7 +65,7 @@ function mostrarProductos() {
 
     for (let p = 0; p < cantidadProductos; p++) {
 
-        producto = PRODUCTOS[p];
+        productos = PRODUCTOS[p];
 
         let opcionCantidad = "";
         const cantidadMaxPermitida = parseInt(selectCantProducMax.value);
@@ -70,8 +75,8 @@ function mostrarProductos() {
         }
         divMostrarProductos.innerHTML += `
         <div class="producto">
-        <h3>${producto.nombre}</h3>
-        <img src="${producto.imagen}" alt="Producto ${p}">
+        <h3>${productos.nombre}</h3>
+        <img src="${productos.imagen}" alt="Producto ${p}">
         <p>Opciones de pago:</p>
         <select>
           <option value="1">Efectivo</option>
@@ -79,7 +84,7 @@ function mostrarProductos() {
           <option value="3">Crédito</option>
         </select>
         <p>Seleccione Cantidad </p>
-        <select style="display: block;">
+        <select>
         ${opcionCantidad}
         </select>
         <br>
@@ -87,7 +92,57 @@ function mostrarProductos() {
         </div>`;
     }
 }
+
+function cambiarColorProducto() {
+    const divMostrarProductos = document.getElementsByClassName('producto');
+
+    for (let i = 0; i < divMostrarProductos.length; i++) {
+        const producto = divMostrarProductos[i];
+        const numPar = (i + 1) % 2 === 0;
+
+        switch (selectColores.value) {
+            case "ninguno":
+                if (numPar) {
+                    producto.style.backgroundColor = "#1D3BF6";
+                } else {
+                    producto.style.backgroundColor = "#1DDEF6";
+                }
+                break;
+            case "naranja-rojo":
+                if (numPar) {
+                    producto.style.backgroundColor = "#FA201A";
+                } else {
+                    producto.style.backgroundColor = "#FB7E1C";
+                }
+                break;
+            case "blanco-violeta":
+                if (numPar) {
+                    producto.style.backgroundColor = "#6214F9";
+                } else {
+                    producto.style.backgroundColor = "#FFFFFF";
+                }
+                break;
+            case "verde-rosa":
+                if (numPar) {
+                    producto.style.backgroundColor = "#ED3DEF";
+                } else {
+                    producto.style.backgroundColor = "#25ED1E";
+                }
+                break;
+            default:
+
+        }
+    }
+}
+function eliminarImagen() {
+    var imagen = document.getElementById('img-portada');
+    imagen.remove();
+}
+/* llama a las funciones anteriores*/
+
 function generarProductos() {
     mostrarSeleccion();
     mostrarProductos();
+    cambiarColorProducto();
+    eliminarImagen();
 }
