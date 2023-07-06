@@ -130,7 +130,6 @@ function cambiarColorProducto() {
                 }
                 break;
             default:
-
         }
     }
 }
